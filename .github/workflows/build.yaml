@@ -10,16 +10,10 @@ jobs:
       - name: Checkout the code
         uses: actions/checkout@v3
 
-      - name: Set up Node.js
-        uses: actions/setup-node@v3
+      - name: Setup JDK
+        uses: actions/setup-java@v1
         with:
-          node-version: '20'
-
-      - name: Set up JDK
-        uses: actions/setup-java@v3
-        with:
-          java-version: '18.0.1'
-          distribution: 'zulu'
+          java-version: 11
 
       - id: get-project
         name: Get project name
