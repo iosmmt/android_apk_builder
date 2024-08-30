@@ -8,12 +8,12 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
-        uses: actions/checkout@v3  # 使用最新版本的 checkout 动作
+        uses: actions/checkout@v3
     
       - name: Setup JDK
-        uses: actions/setup-java@v2  # 使用最新版本的 setup-java 动作
+        uses: actions/setup-java@v2
         with:
-         java-version: '11'
+          java-version: '11'
 
       - id: get-project
         name: Get project name
@@ -25,7 +25,7 @@ jobs:
       - name: Build the app
         working-directory: './project'
         run: |
-          if [! -f "gradlew" ]; then
+          if [ ! -f "gradlew" ]; then
             gradle wrapper
           fi
           chmod +x gradlew
@@ -35,4 +35,4 @@ jobs:
         uses: actions/upload-artifact@v3
         with:
           name: my-build-apk
-           path:./**/*.apk
+          path: ./**/*.apk
